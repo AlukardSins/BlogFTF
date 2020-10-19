@@ -1,0 +1,21 @@
+<div *ngIf="post" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="post._id">Post</h2>
+    <h2 *ngIf="!post._id">Nuevo Post</h2>
+  </div>
+</div>
+<div *ngIf="post" class="row">
+  <form class="col-md-12">
+    <div class="form-group">
+      <label for="creator">Autor</label>
+      <input class="form-control" name="creator" [(ngModel)]="post.creator" placeholder="Nickname" required />
+    </div>
+    <div class="form-group">
+      <label for="content">Contenido</label>
+      <input type="text" class="form-control" name="content" [(ngModel)]="post.content" />
+    </div>
+    <button class="btn btn-primary" *ngIf="!post._id" (click)="createPost(post)">Crear</button>
+    <button class="btn btn-info" *ngIf="post._id" (click)="updatePost(post)">Actualizar</button>
+    <button class="btn btn-danger" *ngIf="post._id" (click)="deletePost(post._id)">Eliminar</button>
+  </form>
+</div>
