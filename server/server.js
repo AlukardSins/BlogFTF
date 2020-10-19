@@ -10,6 +10,7 @@ const dbConfig = require('./db/config')
 const port = process.env.PORT || 3000
 
 // Routes
+const PostRoute = require('./routes/post.routes')
 
 // Connecting mongoDB
 mongoose
@@ -23,7 +24,7 @@ mongoose
       console.log('Database connected sucessfully')
     },
     (err) => {
-      console.log(`Database not connected, with error: \t${err.status}`)
+      console.log(`Database not connected, with error:\t${err.status}`)
     }
   )
 
@@ -40,6 +41,7 @@ app.use(
 )
 
 // RESTful API routes
+app.use('/api/post', PostRoute)
 
 // Start listening
 app.listen(port, () => {
