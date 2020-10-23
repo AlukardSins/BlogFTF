@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { FeedComponent } from '../app/post/feed/feed.component'
+import { CategoryComponent } from '../app/category/category.component'
 
 const routes: Routes = [
   {
     path: '',
-    component: FeedComponent
+    component: CategoryComponent
   }
 ]
 

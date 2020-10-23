@@ -1,22 +1,10 @@
 <div class="row">
   <div class="col-md-5">
     <h2>Posts</h2>
-    <table class="table table-hover">
-      <thead>
-        <th scope="col">Creado por</th>
-        <th scope="col">Contenido</th>
-        <th scope="col">Puntaje</th>
-        <th scope="col">Verificado</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let post of posts" (click)="selectPost(post)">
-          <td>{{post.creator}}</td>
-          <td>{{post.content}}</td>
-          <td>{{post.score}}</td>
-          <td><input type="checkbox" name="verified" [(ngModel)]="post.verified" disabled /></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="card" *ngFor="let post in Posts">
+      <div class="card-body">
+      </div>
+    </div>
     <button class="btn btn-success" (click)="createNewPost()">Nuevo</button>
   </div>
   <div class="col-md-5 col-md-offset-2">

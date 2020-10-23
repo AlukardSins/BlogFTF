@@ -11,6 +11,7 @@ const port = process.env.PORT || 3000
 
 // Routes
 const PostRoute = require('./routes/post.routes')
+const CategoryRoute = require('./routes/category.routes')
 
 // Connecting mongoDB
 mongoose
@@ -42,6 +43,7 @@ app.use(
 
 // RESTful API routes
 app.use('/api/post', PostRoute)
+app.use('/api/category', CategoryRoute)
 
 // Start listening
 app.listen(port, () => {
