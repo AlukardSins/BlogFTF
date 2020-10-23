@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
+
+import { Category } from 'src/app/models/category'
 
 import { Post } from '../../models/post'
 import { PostService } from '../../services/post.service'
@@ -14,6 +16,8 @@ import { PostService } from '../../services/post.service'
   ]
 })
 export class FeedComponent implements OnInit {
+  @Input() category: Category
+
   posts: Post[]
   selectedPost: Post
 
@@ -21,7 +25,9 @@ export class FeedComponent implements OnInit {
 
   ngOnInit () {
     this.postService.getAllPosts().subscribe((posts: Post[]) => {
-      this.posts = posts
+      this.posts = posts.filter(el => {
+        el.category === this.category._id
+      })
     })
   }
 
@@ -45,7 +51,8 @@ export class FeedComponent implements OnInit {
     let post: Post = {
       creator: '',
       score: 0,
-      content: ''
+      content: '',
+      category: this.category._id
     }
 
     this.selectPost(post)
