@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 import { Category } from 'src/app/models/category'
 
@@ -15,21 +15,20 @@ import { PostService } from '../../services/post.service'
     PostService
   ]
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent  {
   @Input() category: Category
 
   posts: Post[]
   selectedPost: Post
 
-  constructor (private postService: PostService) {}
-
-  ngOnInit () {
+  constructor (private postService: PostService) {
     this.postService.getAllPosts().subscribe((posts: Post[]) => {
-      this.posts = posts.filter(el => {
-        el.category === this.category._id
-      })
+    this.posts = posts.filter(el => {
+      el.category === this.category._id
     })
-  }
+  })
+}
+
 
   private getIndex = (postId: String) => {
     return this.posts.findIndex((post: Post) => {
