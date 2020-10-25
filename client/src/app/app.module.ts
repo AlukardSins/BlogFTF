@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { DetailComponent } from './post/detail/detail.component'
-import { FeedComponent } from './post/feed/feed.component';
-import { CategoryComponent} from './category/category.component'
+import { DetailComponent } from './components/post/detail/detail.component'
+import { FeedComponent } from './components/post/feed/feed.component'
+import { CategoryComponent} from './components/category/category.component'
 
 @NgModule({
   declarations: [
